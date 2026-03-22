@@ -1,8 +1,0 @@
-{
-  "name": "travelmatex-root",
-  "private": true,
-  "scripts": {
-    "install-frontend": "npm install --prefix frontend --legacy-peer-deps",
-    "build-frontend": "npm run build --prefix frontend"
-  }
-}
