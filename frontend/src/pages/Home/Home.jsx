@@ -46,7 +46,7 @@ export const Home = () => {
     (async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:3500/api/hotels?category=${hotelCategory}`
+          `http://localhost:5000/api/hotels?category=${hotelCategory}`
         );
 
         setTestData(data);

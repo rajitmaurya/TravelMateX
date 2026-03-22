@@ -20,7 +20,7 @@ export const Categories = () => {
     (async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:3500/api/category"
+          "http://localhost:5000/api/category"
         );
         setCategories(data);
       } catch (err) {
