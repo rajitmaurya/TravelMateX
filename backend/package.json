@@ -1,7 +1,7 @@
 {
-  "name": "travel_app_gfg_strudent_version",
+  "name": "travelmatex-backend",
   "version": "1.0.0",
-  "description": "Travel App",
+  "description": "TravelMateX Backend Solution",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -13,7 +13,7 @@
     "url": "git+https://github.com/prakashsakari/travel_app_GFG_strudent_version.git"
   },
   "keywords": [],
-  "author": "Prakash Sakari",
+  "author": "Rajit Maurya",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/prakashsakari/travel_app_GFG_strudent_version/issues"
