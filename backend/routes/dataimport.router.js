@@ -8,7 +8,7 @@ const router = express.Router();
 router.route("/")
     .post(async (req, res) => {
         try{
-            await Hotel.remove();
+            await Hotel.deleteMany({});
             const hotelsInDB = await Hotel.insertMany(hotels.data);
             res.json(hotelsInDB)
         }catch(err){

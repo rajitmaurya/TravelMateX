@@ -6,7 +6,10 @@ const User = require("../model/user.model");
 const loginHandler = async (req, res) => {
     try{
         const user = await User.findOne({ number: req.body.number });
-        !user && res.status(401).json({ message: "Incorrect Mobile Number" });
+        
+        if (!user) {
+            return res.status(401).json({ message: "Incorrect Mobile Number" });
+        }
 
         const decodedPassword = CryptoJS.AES.decrypt(user.password, process.env.PASSWORD_SECRET_KEY).toString(CryptoJS.enc.Utf8);
         decodedPassword !== req.body.password && res.status(401).json({ message: "Incorrect Password"});
