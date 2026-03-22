@@ -26,7 +26,7 @@ export const SingleHotel = () => {
     (async () => {
       try {
         const { data } = await axios.get(
-          `https://travelapp.cyclic.app/api/hotels/${id}`
+          `http://localhost:3500/api/hotels/${id}`
         );
         setSingleHotel(data);
       } catch (err) {

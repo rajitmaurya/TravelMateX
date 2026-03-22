@@ -13,7 +13,7 @@ export const SearchResults = () => {
     (async () => {
       try {
         const { data } = await axios.get(
-          `https://travelapp.cyclic.app/api/hotels?category=${hotelCategory}`
+          `http://localhost:3500/api/hotels?category=${hotelCategory}`
         );
         setHotels(data);
       } catch (err) {

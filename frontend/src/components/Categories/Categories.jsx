@@ -20,7 +20,7 @@ export const Categories = () => {
     (async () => {
       try {
         const { data } = await axios.get(
-          "https://travelapp.cyclic.app/api/category"
+          "http://localhost:3500/api/category"
         );
         setCategories(data);
       } catch (err) {
