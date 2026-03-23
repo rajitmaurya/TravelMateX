@@ -20,7 +20,7 @@ export const Categories = () => {
     (async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:5000/api/category"
+          `${import.meta.env.VITE_APP_API_URL}/api/category`
         );
         setCategories(data);
       } catch (err) {

@@ -5,7 +5,7 @@ export const loginHandler = async (number, password, setAlert) => {
     const {
       data: { accessToken, username },
     } = await axios.post(
-      "http://localhost:5000/api/auth/login",
+      `${import.meta.env.VITE_APP_API_URL}/api/auth/login`,
       {
         number: number,
         password: password,

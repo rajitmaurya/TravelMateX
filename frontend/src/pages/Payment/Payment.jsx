@@ -26,7 +26,7 @@ export const Payment = () => {
     (async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:5000/api/hotels/${id}`
+          `${import.meta.env.VITE_APP_API_URL}/api/hotels/${id}`
         );
         setSingleHotel(data);
       } catch (err) {

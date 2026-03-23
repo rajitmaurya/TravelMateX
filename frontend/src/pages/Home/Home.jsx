@@ -46,7 +46,7 @@ export const Home = () => {
     (async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:5000/api/hotels?category=${hotelCategory}`
+          `${import.meta.env.VITE_APP_API_URL}/api/hotels?category=${hotelCategory}`
         );
 
         setTestData(data);
