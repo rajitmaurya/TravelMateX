@@ -37,6 +37,14 @@ export const Categories = () => {
     setHotelCategory(category);
   };
 
+  const breakPoints = [
+    { width: 1, itemsToShow: 2, itemsToScroll: 2 },
+    { width: 480, itemsToShow: 3, itemsToScroll: 3 },
+    { width: 768, itemsToShow: 5, itemsToScroll: 4 },
+    { width: 1024, itemsToShow: 7, itemsToScroll: 6 },
+    { width: 1200, itemsToShow: 9, itemsToScroll: 6 }
+  ];
+
   return (
     <section className="categories d-flex gap">
       {isCatLoading ? (
@@ -46,7 +54,12 @@ export const Categories = () => {
           ))}
         </div>
       ) : (
-        <Carousel className="carousel" itemsToShow={9} itemsToScroll={6} pagination={false}>
+        <Carousel 
+          className="carousel" 
+          breakPoints={breakPoints}
+          pagination={false}
+          showArrows={true}
+        >
           {
             categories && categories.map(({ _id, category }) => <span key={_id} className={`${category === hotelCategory ? "category-color" : ""} item`} onClick={() => handleCategoryClick(category)}>{category}</span>)
           }
@@ -65,4 +78,5 @@ export const Categories = () => {
     </section>
   );
 };
+
 

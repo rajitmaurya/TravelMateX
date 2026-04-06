@@ -11,7 +11,7 @@ export const HotelDetails = ({ singleHotel }) => {
   } = singleHotel;
 
   return (
-    <div className="hotel-details-container">
+    <div className="hotel-details hotel-details-container">
       <div className="host-details">
         <p className="host-name p">
           Hosted by {hostName}, Joined on {hostJoinedOn}

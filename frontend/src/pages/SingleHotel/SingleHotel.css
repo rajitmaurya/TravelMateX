@@ -1,8 +1,37 @@
 .single-hotel-page {
-  padding: 7rem 8rem 2rem 9rem;
+  padding: 6rem 8rem 2rem 9rem;
+}
+
+.hotel-details-container {
+  display: flex;
+  gap: 2rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .single-hotel-page {
+    padding: 6rem 4rem 2rem 4rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .single-hotel-page {
+    padding: 6rem 1.5rem 2rem 1.5rem;
+  }
+  
+  .hotel-details-container {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .single-hotel-page {
+    padding: 10rem 1rem 2rem 1rem;
+  }
 }
 
 .hotel-name-add {
   font-size: 1.5rem;
-  padding-bottom: 8px;
+  padding: 1rem 0;
 }
+

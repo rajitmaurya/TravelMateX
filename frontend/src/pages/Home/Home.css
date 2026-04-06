@@ -1,5 +1,25 @@
 .main {
   padding: 11rem 2rem 2rem 2rem;
+  justify-content: center;
+}
+
+@media screen and (max-width: 1024px) {
+  .main {
+    padding: 11rem 1.5rem 2rem 1.5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    padding: 18rem 1rem 2rem 1rem;
+    gap: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .main {
+    padding: 20rem 0.5rem 2rem 0.5rem;
+  }
 }
 
 .gap-larger {
@@ -10,3 +30,4 @@
   margin: 2rem 0;
   text-align: center;
 }
+

@@ -2,6 +2,11 @@
   width: 20rem;
   border-radius: 4px;
   background-color: var(--background-color);
+  transition: transform 0.3s ease;
+}
+
+.hotelcard-container:hover {
+  transform: translateY(-5px);
 }
 
 .img {
@@ -11,10 +16,22 @@
   border-radius: 4px;
 }
 
+@media screen and (max-width: 480px) {
+  .hotelcard-container {
+    width: 100%;
+    max-width: 28rem;
+  }
+  
+  .img {
+    height: 18rem;
+  }
+}
+
 .hotelcard-details {
   color: var(--text-color-primary);
   padding: 8px;
 }
+
 
 .location {
   font-weight: bold;

@@ -8,10 +8,23 @@
 
 .auth-modal {
   width: 400px;
+  max-width: 90vw;
   background-color: var(--background-color);
-  top: 1rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   opacity: 1;
+  border-radius: 12px;
+  overflow: hidden;
 }
+
+@media screen and (max-width: 480px) {
+  .auth-modal {
+    width: 95vw;
+    top: 55%;
+  }
+}
+
 
 .button.btn-auth {
   border-radius: 0;

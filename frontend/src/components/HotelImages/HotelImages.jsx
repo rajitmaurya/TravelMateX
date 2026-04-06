@@ -1,15 +1,11 @@
 import "./HotelImages.css";
 
 export const HotelImages = ({ singleHotel }) => {
-  console.log(singleHotel);
   const { image, imageArr } = singleHotel;
 
   return (
-    <div className="hotel-image-container d-flex gap-small">
-      <div className="primary-image-container">
-        <img className="primary-img" src={image} alt="hotel" />
-      </div>
-      <div className="d-flex wrap gap-small">
+    <div className="hotel-images-container">
+      <img className="primary-img" src={image} alt="hotel" />
         {imageArr &&
           imageArr.map((image) => (
             <img
@@ -19,7 +15,7 @@ export const HotelImages = ({ singleHotel }) => {
               alt="hotel"
             />
           ))}
-      </div>
     </div>
   );
 };
+

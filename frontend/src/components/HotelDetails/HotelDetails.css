@@ -1,6 +1,13 @@
-.gap-small {
-  gap: 8px;
+.hotel-details {
+  flex-grow: 1;
 }
+
+@media screen and (max-width: 768px) {
+  .hotel-details {
+    width: 100%;
+  }
+}
+
 
 .host-details .p {
   color: var(--text-color-primary);

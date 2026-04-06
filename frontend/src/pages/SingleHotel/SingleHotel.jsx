@@ -60,10 +60,11 @@ export const SingleHotel = () => {
           {name}, {state}
         </p>
         <HotelImages singleHotel={singleHotel} />
-        <div className="d-flex">
+        <div className="hotel-details-container">
           <HotelDetails singleHotel={singleHotel} />
           <FinalPrice singleHotel={singleHotel} />
         </div>
+
       </main>
       {isSearchModalOpen && <SearchStayWithDate />}
       {isDropDownModalOpen && <ProfileDropDown />}

@@ -12,6 +12,7 @@
   font-size: 1.75rem;
   color: var(--primary-color);
   padding: 0;
+  white-space: nowrap;
 }
 
 .nav {
@@ -27,12 +28,16 @@
   background-color: #fff;
   height: 2.75rem;
   border-radius: 4px;
+  max-width: 100%;
 }
 
 .form-option {
   font-size: 0.875rem;
   padding: 8px;
   color: var(--text-color-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .border-right-1px {
@@ -46,6 +51,8 @@
   padding: 8px;
   font-size: 1.875rem;
   border-radius: 0 4px 4px 0;
+  display: flex;
+  align-items: center;
 }
 
 .profile-option {
@@ -65,3 +72,57 @@
 .cursor-pointer:hover {
   cursor: pointer;
 }
+
+@media screen and (max-width: 1024px) {
+  .heading {
+    padding: 8px 1.5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .heading {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 8px 1rem;
+    gap: 0.5rem;
+  }
+
+  .form-container {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .heading-1 {
+    font-size: 1.5rem;
+  }
+
+  .nav {
+    height: 2.5rem;
+  }
+
+  .profile-option {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .form-option:not(:first-child) {
+    display: none;
+  }
+
+  .border-right-1px {
+    display: none;
+  }
+
+  .heading-1 {
+    font-size: 1.25rem;
+  }
+
+  .form-container {
+    width: auto;
+    flex-grow: 1;
+    margin-right: 0.5rem;
+  }
+}
+
