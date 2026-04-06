@@ -11,6 +11,7 @@ import {
   ProfileDropDown,
   Alert
 } from "../../components";
+import { HotelSkeleton } from "../../components/Skeleton/HotelSkeleton";
 import "./Home.css";
 import { useCategory, useDate, useFilter, useAuth, useAlert } from "../../context";
 import {
@@ -26,6 +27,7 @@ export const Home = () => {
   const [currentIndex, setCurrentIndex] = useState(16);
   const [testData, setTestData] = useState([]);
   const [hotels, setHotels] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const { hotelCategory } = useCategory();
   const { isSearchModalOpen } = useDate();
   const {
@@ -45,14 +47,17 @@ export const Home = () => {
   useEffect(() => {
     (async () => {
       try {
+        setIsLoading(true);
         const { data } = await axios.get(
           `${import.meta.env.VITE_APP_API_URL}/api/hotels?category=${hotelCategory}`
         );
 
         setTestData(data);
         setHotels(data ? data.slice(0, 16) : []);
+        setIsLoading(false);
       } catch (err) {
         console.log(err);
+        setIsLoading(false);
       }
     })();
   }, [hotelCategory]);
@@ -99,9 +104,15 @@ export const Home = () => {
 
   return (
     <div className="relative">
-      <Navbar route="home"/>
+      <Navbar route="home" />
       <Categories />
-      {hotels && hotels.length > 0 ? (
+      {isLoading ? (
+        <main className="main d-flex align-center wrap gap-larger">
+          {[...Array(8)].map((_, index) => (
+            <HotelSkeleton key={index} />
+          ))}
+        </main>
+      ) : hotels && hotels.length > 0 ? (
         <InfiniteScroll
           dataLength={hotels.length}
           next={fetchMoreData}
@@ -119,7 +130,9 @@ export const Home = () => {
           </main>
         </InfiniteScroll>
       ) : (
-        <></>
+        <div className="d-flex align-center justify-center" style={{ height: "50vh" }}>
+          <h3 className="alert-text">No hotels found in this category</h3>
+        </div>
       )}
       {isDropDownModalOpen && <ProfileDropDown />}
       {isSearchModalOpen && <SearchStayWithDate />}
@@ -129,3 +142,4 @@ export const Home = () => {
     </div>
   );
 };
+

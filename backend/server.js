@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
+const https = require("https");
 
 dotenv.config();
 
@@ -20,7 +21,6 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-connectDB();
 
 const PORT = 3500;
 
@@ -36,9 +36,23 @@ app.use("/api/hotels", singleHoterRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/wishlist", wishlistRouter);
 
+// Self-pinging to prevent Render cold starts
+const RENDER_URL = "https://travelmatex.onrender.com";
+setInterval(() => {
+  https.get(RENDER_URL, (res) => {
+    console.log(`Self-pinged: ${res.statusCode}`);
+  }).on('error', (err) => {
+    console.error(`Error self-pinging: ${err.message}`);
+  });
+}, 840000); // 14 minutes
+
+// Start server immediately and connect DB in background
+app.listen(process.env.PORT || PORT, () => {
+    console.log(`Server is Up and Running on port ${process.env.PORT || PORT}`);
+    connectDB();
+});
+
 mongoose.connection.once("open", () => {
   console.log("Connected to DB");
-  app.listen(process.env.PORT || PORT, () => {
-    console.log("Server is Up and Running");
-  });
 });
+

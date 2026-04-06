@@ -26,5 +26,6 @@ const hotelSchema = new mongoose.Schema({
 })
 
 const Hotel = mongoose.model("Hotel", hotelSchema);
+hotelSchema.index({ category: 1 });
 
 module.exports = Hotel;
