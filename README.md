@@ -77,4 +77,4 @@ TravelMateX is a comprehensive hotel booking web application designed to provide
 This project is licensed under the ISC License.
 
 
-author-rajit maurya
+author-rajit maurya full stack dev
